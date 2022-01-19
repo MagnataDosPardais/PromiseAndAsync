@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			function syncF() {
+				return new Promise((resolve) => {
+					setTimeout(() => {
+						console.log("Wait this")
+						resolve()
+					},2000)
+				})
+			}
+			async function asyncF(){
+				console.log("Begin")
+				await syncF()
+				console.log("End")
+			}
+			
+			function getUser(id){
+				return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+					.then(data => data.json())
+					.catch(err => console.log(err))
+			}
+			async function showUser(id,aw){
+				console.log("Seartch...");
+				if(aw){
+					var us = await getUser(id);
+				}
+				else{
+					var us = getUser(id);
+				}
+				console.log("Researtch ended!");
+				console.log(us);
+				console.log("END");
+			}
+			let user = Number(window.prompt("ID:"));
+			let wait = window.confirm("Usar await?");
+			showUser(user,wait);
+		</script>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
