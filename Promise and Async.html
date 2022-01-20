@@ -19,7 +19,7 @@
 			
 			function getUser(id){
 				return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
-					.then((data) => data.json())
+					.then((data) => console.log(data.json()))
 					.catch((err) => console.log(err))
 			}
 			async function showUser(id,aw){
@@ -36,9 +36,9 @@
 			}
 			/*let waitTest = window.confirm("Test with await?");
 			asyncF(waitTest);*/
-			/*let user = window.prompt("ID:");
+			let user = window.prompt("ID:");
 			let wait = window.confirm("Use await?");
-			showUser(user,wait);*/
+			showUser(user,wait);
 		</script>
 	</head>
 	
