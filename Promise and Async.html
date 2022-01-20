@@ -5,15 +5,15 @@
 			function syncF() {
 				return new Promise((resolve,reject) => {
 					setTimeout(() => {
-						console.log("Wait this")
+						console.log(">>Wait this!")
 						resolve()
 					},2000)
 				})
 			}
 			async function asyncF(){
-				console.log("Begin")
+				console.log(">>Begin")
 				await syncF()
-				console.log("End")
+				console.log(>>"End")
 			}
 			
 			function getUser(id){
@@ -25,9 +25,11 @@
 				console.log("Seartch...");
 				if(aw){
 					var us = await getUser(id);
+                    			await asyncF()
 				}
 				else{
 					var us = getUser(id);
+                    			asyncF()
 				}
 				console.log("Researtch ended!");
 				console.log(us);
